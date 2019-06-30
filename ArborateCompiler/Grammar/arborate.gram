@@ -1,0 +1,30 @@
+﻿grammar Grammar
+{
+	options
+	{
+		Axiom = "program";
+		Separator = "SEPARATOR";
+		Namespace = "Arborate";
+	}
+
+	terminals
+	{
+		WHITE_SPACE -> U+0020 | U+0009 | U+000A | U+000B | U+000C | U+000D;
+		SEPARATOR   -> WHITE_SPACE+;
+
+		LCURLY -> '(';
+		RCURLY -> ')';
+
+		KW_FUNC -> 'function';
+		KW_ENDFUNC -> 'endfunction';
+	}
+
+	rules
+	{
+		function
+			-> KW_FUNC LCURLY RCURLY KW_ENDFUNC;
+
+		program
+			-> function;
+	}
+}

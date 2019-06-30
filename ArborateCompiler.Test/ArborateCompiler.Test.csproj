@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="FunctionTests\EmptyFunctionCompiles.rb8" />
+    <None Remove="FunctionTests\MissingEndfunctionHasCompileErrors.rb8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="FunctionTests\MissingEndfunctionHasCompileErrors.rb8" />
+    <EmbeddedResource Include="FunctionTests\EmptyFunctionCompiles.rb8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArborateCompiler\ArborateCompiler.csproj" />
+  </ItemGroup>
+
+</Project>

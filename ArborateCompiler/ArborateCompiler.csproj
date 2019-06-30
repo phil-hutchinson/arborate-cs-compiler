@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Grammar\GrammarLexer.bin" />
+    <None Remove="Grammar\GrammarParser.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Grammar\GrammarLexer.bin" />
+    <EmbeddedResource Include="Grammar\GrammarParser.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hime.SDK" Version="3.4.0" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="cd Grammar&#xD;&#xA;himecc.bat arborate.gram&#xD;&#xA;cd .." />
+  </Target>
+
+</Project>
